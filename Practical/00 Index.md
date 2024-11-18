@@ -1,0 +1,1 @@
+1. With HTML : a simple Spring & HTML project with no database
