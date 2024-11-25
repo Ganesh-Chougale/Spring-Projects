@@ -1,0 +1,6 @@
+application.properties : project & database info based on hibernate principle PACKAGE
+PACKAGE Enity : to create table
+PACKAGE Model : for existing table
+PACKAGE Service : passing sysouts for debuging
+PACKAGE Repository : 
+PACKAGE Controller : CRUDS
