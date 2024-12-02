@@ -1,0 +1,3 @@
+Annotations in java is a label of a class, method, field that tells the metadata(information) to the compiler, runtime enivornment or frameworkds.  
+`@Entity` : marks the class as JPA Entity = `Database table`.  
+`@Override` : to tell the enviroment that we are intentionally overriding a method which is derived from superclass. (if we do mistake between name, parameters, return type, by help of this annotation we get compiletime error).  
