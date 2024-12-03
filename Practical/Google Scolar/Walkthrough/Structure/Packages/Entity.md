@@ -1,4 +1,13 @@
-## User.java :  
+## Role.java  
+```java
+package com.Verligence.GSRPM.Entity;
+
+public enum Role {
+	ROLE_USER,
+	ROLE_ADMIN;
+}
+```  
+## User.java  
 ```java
 package com.Verligence.GSRPM.Entity;
 
@@ -7,6 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.GrantedAuthoritiesContainer;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,6 +31,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "AppUser")
@@ -44,6 +55,7 @@ public class User implements UserDetails{
 	@Column(name = "role")
 	@Enumerated(EnumType.STRING)
 	private Set<Role> roles = new HashSet<>();
+
 	
 	public User() {
 		
@@ -106,6 +118,7 @@ public class User implements UserDetails{
         }
         return authorities;
     }
+    
 
 	@Override
     public boolean isAccountNonExpired() {
@@ -126,32 +139,6 @@ public class User implements UserDetails{
     public boolean isEnabled() {
     	return true;
     }
+
 }
-```  
-## 2. Role.java :  
-```java
-package com.Verligence.GSRPM.Entity;
-
-public enum Role {
-	ROLE_USER,
-	ROLE_ADMIN;
-} 
-```  
-## 3. UserRepository.java  
-```java
-package com.Verligence.GSRPM.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.Verligence.GSRPM.Entity.User;
-import java.util.Optional;
-
-
-public interface UserRepository extends JpaRepository<User, Long>{
-	Optional<User> findByUsername(String username);
-	Optional<User> findByEmail(String email);
-}
-```  
-
-
-
-
+```    
